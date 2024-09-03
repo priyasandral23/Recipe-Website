@@ -14,7 +14,7 @@ HTML CSS JavaScript
 
 Project link (https://priyasandral23.github.io/Recipe-Website/)
 
-Source code (https://github.com/priyasandral23/Recipe-Website/edit/main/README.md)
+Source code (https://github.com/priyasandral23/Recipe-Website)
 
 Usage
 
