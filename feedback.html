@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback & Rating</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e5e5e5; 
+            
+            background: url(https://as2.ftcdn.net/v2/jpg/09/10/28/39/1000_F_910283905_GtTsp3YqJl6Y7U43sXBFZzbdd8bF0ARR.jpg);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+        }
+
+        header {
+            background-color: #852020;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+           
+            padding-right: 80px;
+            font-size: 3.5em;
+           
+
+        }
+
+        header p {
+            font-size: 1.2em;
+        }
+
+        main {
+            padding: 2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff; 
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #852020; 
+        }
+
+        label {
+            display: block;
+            margin-top: 1rem;
+            color: #333; 
+        }
+
+        input[type="text"], 
+        input[type="email"], 
+        textarea {
+            width: 100%;
+            padding: 0.5rem;
+            margin-top: 0.5rem;
+            border: 1px solid #852020; 
+            border-radius: 4px;
+            background-color: #fff; 
+            color: #333; 
+        }
+
+        #rating {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+            cursor: pointer;
+        }
+
+        #rating i {
+            font-size: 1.5rem;
+            color: #ddd;
+        }
+
+        #rating i.selected,
+        #rating i:hover,
+        #rating i:hover ~ i {
+            color: #852020; 
+        }
+
+        button {
+            margin-top: 1rem;
+            padding: 0.75rem 1.5rem;
+            background-color: #852020; 
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #c55b5b; 
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #852020; 
+            color: #fff;
+        }
+
+        .form-icon {
+            color: #852020; 
+            margin-right: 0.5rem;
+        }
+
+        #backBtn {
+            padding: 10px 20px;
+            background-color: #852020; 
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-bottom: 1rem;
+        }
+
+        #backBtn:hover {
+            background-color: #c55b5b; 
+        }
+
+        #backBtn a {
+            color: white; 
+            text-decoration: none; 
+        }
+
+        #p1 {
+            color: #ffffff; 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-comments form-icon"></i> Feedback & Rating</h1>
+        <p>We'd love to hear your thoughts about our menu!</p>
+    </header>
+    <main>
+        <button id="backBtn"><a href="menu.html">Back to Recipes</a></button>
+        <form id="feedbackForm">
+            <label for="name"><i class="fas fa-user form-icon"></i> Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email"><i class="fas fa-envelope form-icon"></i> Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="rating"><i class="fas fa-star form-icon"></i> Rating:</label>
+            <div id="rating">
+                <i class="fas fa-star" data-value="1"></i>
+                <i class="fas fa-star" data-value="2"></i>
+                <i class="fas fa-star" data-value="3"></i>
+                <i class="fas fa-star" data-value="4"></i>
+                <i class="fas fa-star" data-value="5"></i>
+            </div>
+            
+            <input type="hidden" id="ratingValue" name="rating" required>
+            
+            <label for="comments"><i class="fas fa-pencil-alt form-icon"></i> Comments:</label>
+            <textarea id="comments" name="comments" rows="4" required></textarea>
+            
+            <button type="submit"><i class="fas fa-paper-plane"></i> Submit Feedback</button>
+        </form>
+    </main>
+    <footer>
+        <p id="p1">Campus Recipe Book</p>
+    </footer>
+    <script>
+        // Internal JavaScript
+        const stars = document.querySelectorAll('#rating i');
+        const ratingInput = document.getElementById('ratingValue');
+        let currentRating = 0;
+
+        stars.forEach(star => {
+            star.addEventListener('click', function() {
+                const rating = this.getAttribute('data-value');
+                currentRating = rating;
+
+                stars.forEach(s => {
+                    s.classList.remove('selected');
+                });
+
+                this.classList.add('selected');
+                this.previousElementSibling && this.previousElementSibling.classList.add('selected');
+                ratingInput.value = rating;
+            });
+
+            star.addEventListener('mouseover', function() {
+                const rating = this.getAttribute('data-value');
+                stars.forEach(s => {
+                    if (s.getAttribute('data-value') <= rating) {
+                        s.classList.add('selected');
+                    } else {
+                        s.classList.remove('selected');
+                    }
+                });
+            });
+
+            star.addEventListener('mouseout', function() {
+                stars.forEach(s => {
+                    if (s.getAttribute('data-value') <= currentRating) {
+                        s.classList.add('selected');
+                    } else {
+                        s.classList.remove('selected');
+                    }
+                });
+            });
+        });
+
+        document.getElementById('feedbackForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const rating = document.getElementById('ratingValue').value;
+            const comments = document.getElementById('comments').value;
+
+            console.log('Feedback submitted:');
+            console.log(`Name: ${name}`);
+            console.log(`Email: ${email}`);
+            console.log(`Rating: ${rating}`);
+            console.log(`Comments: ${comments}`);
+
+            alert('Thank you for your feedback!');
+            
+            // Reset form
+            document.getElementById('feedbackForm').reset();
+            stars.forEach(s => s.classList.remove('selected'));
+            currentRating = 0;
+        });
+    </script>
+</body>
+</html>

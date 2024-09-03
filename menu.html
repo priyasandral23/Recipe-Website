@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Recipe Book</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>Campus Recipe Book</h1>
+        <input type="text" id="searchInput" placeholder="Search recipes...">
+        <button id="addRecipeBtn">Add Recipe</button>
+        <button id="saveSelectedBtn">Save Selected</button>
+        <button id="feedbackBtn" type="submit"> <a href="feedback.html">Feedback</a></button>
+    </header>
+    <main id="recipeList">
+        <!-- Recipe cards -->
+    </main>
+    
+    <div id="recipeFormModal" class="modal">
+        <div class="modal-content">
+            <span id="closeModal">&times;</span>
+            <h2>Add a New Recipe</h2>
+            <form id="recipeForm">
+                <input type="text" id="recipeName" placeholder="Recipe Name" required>
+                <input type="text" id="recipePrice" placeholder="Price" required>
+                <input type="text" id="recipeDiscount" placeholder="Discount" required>
+                <input type="text" id="recipeOffer" placeholder="Offer" required>
+                <textarea id="recipeIngredients" placeholder="Ingredients" required></textarea>
+                <textarea id="recipeInstructions" placeholder="Instructions" required></textarea>
+                <input type="text" id="recipeImage" placeholder="Image URL (optional)">
+                <button type="submit">Add Recipe</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>Healthy recipes for campus students</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

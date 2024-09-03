@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome | Recipe Book</title>
+    <link rel="stylesheet" href="">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #2c2c2c;
+            color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('https://as2.ftcdn.net/v2/jpg/07/87/38/11/1000_F_787381158_JP4ARApIlUzGUGLRRW6f36zwpcAWfAov.jpg'); /* Background image */
+            background-size: cover;
+            background-position: center;
+        }
+
+        .welcome-container {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            max-width: 90%;
+            margin: 20px; 
+        }
+
+        .welcome-container:hover {
+            transform: scale(1.05); 
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink-caret {
+            from, to {
+                border-color: transparent;
+            }
+            50% {
+                border-color: #852020; 
+            }
+        }
+
+        .welcome-container h1 {
+            color:#852020; 
+            font-size: 3em;
+            margin-bottom: 10px;
+            white-space: nowrap;
+            overflow: hidden; 
+            border-right: 0.15em solid #852020; 
+            animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite; 
+            font-family: 'Courier New', Courier, monospace; 
+        }
+
+        .welcome-container p {
+            color: #f5f5f5; 
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .welcome-container p:hover {
+            color: #852020; 
+        }
+
+        .welcome-container button {
+            padding: 10px 20px;
+            background-color: #852020; 
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            font-size: 1em;
+            border-radius: 5px;
+        }
+
+        .welcome-container button:hover {
+            background-color: #c55b5b;
+            transform: scale(1.05); 
+        }
+
+        /* Media queries for responsive design */
+        @media (max-width: 768px) {
+            .welcome-container h1 {
+                font-size: 2.5em;
+            }
+            .welcome-container p {
+                font-size: 1.1em;
+            }
+            .welcome-container button {
+                font-size: 0.9em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .welcome-container h1 {
+                font-size: 2em;
+            }
+            .welcome-container p {
+                font-size: 1em;
+            }
+            .welcome-container button {
+                font-size: 0.8em;
+                padding: 8px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome-container">
+        <h1>Welcome to Zoca Cafe Recipe Book!</h1>
+        <p>Explore our collection of healthy and nutritious recipes tailored for campus students.</p>
+        <a href="menu.html">
+            <button>Explore Menus</button>
+        </a>
+    </div>
+</body>
+</html>
