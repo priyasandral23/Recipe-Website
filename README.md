@@ -12,9 +12,9 @@ Technologies Used
 
 HTML CSS JavaScript
 
-Project link ()
+Project link (https://priyasandral23.github.io/Recipe-Website/)
 
-Source code ()
+Source code (https://github.com/priyasandral23/Recipe-Website/edit/main/README.md)
 
 Usage
 
